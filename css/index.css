@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Ruda:wght@400..900&display=swap');
+ 
+.navbar {
+    background-color: #06070d !important;
+    border-bottom: 2px solid #ff7300;
+}
+.navbar-brand img {
+    height: 130px;
+    width: auto;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-size: 28px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.navbar-nav .nav-link:hover {
+    color: #ff7300;
+    text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
+}
+.navbar-nav .nav-link:active {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #00f0ff;
+}
+
+#builder-status {
+    font-size: 28px;
+    font-family: 'Orbitron', sans-serif;
+}
+#data-theme {
+    font-size: 28px;
+    font-family: 'Ruda', sans-serif;
+}
+#cyberNav {
+    font-family: 'Ruda', sans-serif;
+}
+
+
+
+
+
+footer {
+    font-family: 'Ruda', sans-serif;
+    border-top: 2px solid #ff7300;
+    background-color: #06070d !important;
+}
+footer a {
+    color: #00f0ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: #ffffff;
+}
