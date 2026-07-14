@@ -11,7 +11,151 @@
     <link rel="stylesheet" href="./css/Wiki.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="./img/Logo.jpg" alt="CyberForge" class="d-inline-block align-top">
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#cyberNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="cyberNav">
+                <ul class="navbar-nav ms-5">
+                    <li class="nav-item">
+                        <a href="./PC-Builder.html" class="nav-link">Конструктор</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./Wiki.html" class="nav-link">Википедия</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./Summary.html" class="nav-link">Итог сборки</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex gap-3 me-4">
+                <button id="data-theme" class="btn btn-outline-light">Тема</button>
+                <div id="builder-status" class="text-white p-2">0/5</div>
+            </div>
+        </div>
+    </nav>
 
+    <main>
+        <div class="container my-5 text-center">
+            <h2 class="text-uppercase mb-4 text-warning fw-bold" style="font-family: 'Orbitron', sans-serif;">База знаний CyberForge</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-3" id="filter-buttons">
+                <button class="btn btn-warning active" data-filter="all">Все материалы</button>
+                <button class="btn btn-outline-info" data-filter="CPU">Процессоры</button>
+                <button class="btn btn-outline-info" data-filter="GPU">Видеокарты</button>
+                <button class="btn btn-outline-info" data-filter="MotherBoard">Материнские платы</button>
+                <button class="btn btn-outline-info" data-filter="CoolingSystem">Охлаждение</button>
+            </div>
+        </div>
+        <div class="container mb-5">
+            <div class="row g-4" id="wiki-grid">
+                <div class="col-md-4 wiki-card" data-category="CPU">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="./img/CPU.jpg" class="card-img-top" alt="Процессоры">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Как выбрать процессор в 2026</h4>
+                            <p class="card-text text-muted flex-grow-1">Разбираемся в архитектурах Intel и AMD, сокетах и тепловыделении.</p>
+                            <a href="https://3dnews.ru/cpu" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="GPU">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="./img/GPU.jpg" class="card-img-top" alt="Видеокарты">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Топ видеокарт для 4K</h4>
+                            <p class="card-text text-muted flex-grow-1">Сравнение производительности трассировки лучей в новом поколении GPU.</p>
+                            <a href="https://www.ixbt.com/3dv/video-chart-0726.html" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="MotherBoard">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="./img/MotherBoard.jpg" class="card-img-top" alt="Материнские Платы">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Всё о материнских платах</h4>
+                            <p class="card-text text-muted flex-grow-1">Вся возможная информация о материнских платах на данный момент:
+                                Какие комплектующие для них подходят, как сокет определяет выбор процессора, 
+                            </p>
+                            <p id="myContent" class="card-text collapse mt-3 text-muted flex-grow-1">какой тип оперативной памяти поддерживают слоты, 
+                                сколько накопителей и видеокарт можно подключить, а также как форм-фактор платы диктует размеры корпуса и мощность блока питания.
+                            </p>
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#myContent" aria-expanded="false" aria-controls="myContent">
+                                Свернуть / Развернуть
+                            </button>
+                            <a href="https://3dnews.ru/motherboard" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="CoolingSystem">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="./img/CoolingSystem.jpg" class="card-img-top" alt="Кулеры">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Лучшие кулеры для спокойной жизни</h4>
+                            <p class="card-text text-muted flex-grow-1">Системы охлаждения, которые подойдут для всех задач.</p>
+                            <a href="https://3dnews.ru/cooling/cpu" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container-fluid pt-4 pb-3">
+            <div class="row align-items-center mb-4">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <h3 class="text-uppercase fw-bold text-warning mb-0" style="font-family: 'Ruda', sans-serif; letter-spacing: 2px;">
+                        Выкуй свой идеальный ПК
+                    </h3>
+                </div>
+                <div class="col-md-6 text-center text-md-end fs-5">
+                    <a href="https://t.me/BlackGamer_2000_1" class="me-3" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+                        </svg>
+                        Telegram
+                    </a>
+                    <a href="https://vk.com/blackgamer_2000" class="me-3" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16" width="16">
+                            <desc>
+                                Vk Streamline Icon: https://streamlinehq.com
+                            </desc>
+                            <path d="M1.2621749999999998 1.2621749999999998C0.16 2.3643464285714284 0.16 4.138485714285714 0.16 7.6864v0.6271999999999999c0 3.5479142857142856 0 5.322064285714285 1.102175 6.424214285714285C2.3643464285714284 15.839999999999998 4.138485714285714 15.839999999999998 7.6864 15.839999999999998h0.6271999999999999c3.5479142857142856 0 5.322064285714285 0 6.424214285714285 -1.1021857142857143 1.1021857142857143 -1.10215 1.1021857142857143 -2.8762999999999996 1.1021857142857143 -6.424214285714285v-0.6271999999999999c0 -3.5479142857142856 0 -5.3220535714285715 -1.1021857142857143 -6.424225C13.635664285714286 0.16 11.861514285714286 0.16 8.3136 0.16h-0.6271999999999999c-3.5479142857142856 0 -5.3220535714285715 0 -6.424225 1.102175ZM2.8059999999999996 4.929346428571429h1.7901464285714284c0.0588 2.9922535714285714 1.3785071428571427 4.259707142857143 2.4238535714285714 4.521053571428571V4.929346428571429h1.6856V7.51c1.0322535714285712 -0.11105357142857143 2.1168 -1.2870535714285714 2.4826535714285716 -2.5806535714285714h1.6856c-0.1379 0.6708785714285714 -0.4127535714285714 1.3060571428571428 -0.807342857142857 1.865917857142857 -0.39455714285714283 0.559825 -0.9003749999999999 1.0322214285714286 -1.4858571428571428 1.3876821428571429 0.6536964285714285 0.3245178571428571 1.231092857142857 0.7841035714285713 1.6939678571428571 1.3483392857142857 0.462875 0.5642678571428571 0.8007285714285715 1.2203428571428572 0.9912321428571428 1.9248607142857141h-1.8554535714285714c-0.170975 -0.611975 -0.5189107142857142 -1.1597964285714284 -1.000125 -1.574757142857143 -0.48117857142857146 -0.414925 -1.0742214285714284 -0.6785107142857143 -1.704675 -0.7576428571428571v2.3324h-0.20254642857142854c-3.5737071428571427 0 -5.612117857142857 -2.4499999999999997 -5.6970535714285715 -6.5268Z" fill="currentColor" stroke-width="0.0357"></path>
+                        </svg>
+                        VK
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC4JdNEhWWthqFekXZpuxPQg" class="me-3" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                        </svg>
+                        YouTube
+                    </a>
+                    <a href="https://github.com/BlackGamer-2000" class="me-3" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+            <hr class="border-secondary my-3">
+            <div class="row align-items-center">
+                <div class="col-md-8 text-center text-md-start mb-2 mb-md-0 small">
+                    <a href="#" class="text-muted me-3 decoration-none">Политика конфиденциальности</a>
+                    <a href="#" class="text-muted me-3 decoration-none">Политика в отношении файлов Cookie</a>
+                    <a href="#" class="text-muted me-3 decoration-none">Правила пользования сайтом</a>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end text-secondary small">
+                    © 2026 CYBERFORGE. Индивидуальный проект.
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

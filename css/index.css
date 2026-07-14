@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Ruda:wght@400..900&display=swap');
- 
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0e12;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
 .navbar {
-    background-color: #06070d !important;
+    background-color: black !important;
     border-bottom: 2px solid #ff7300;
+    padding: 10px 0;
 }
 .navbar-brand img {
     height: 130px;
@@ -22,10 +31,6 @@
     color: #ff7300;
     text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
 }
-.navbar-nav .nav-link:active {
-    color: #ffffff !important;
-    text-shadow: 0 0 10px #00f0ff;
-}
 
 #builder-status {
     font-size: 28px;
@@ -39,14 +44,77 @@
     font-family: 'Ruda', sans-serif;
 }
 
+main {
+    background-color: #0d0e12;
+    padding: 60px 0;
+}
 
+.swiper {
+    width: 100%;
+    height: 550px;
+    margin: 0 auto;
+}
+.swiper-slide {
+    background-color: #191c26 !important;
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #252a3a !important;
+    border-radius: 12px;
+}
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: #ff7300 !important;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
 
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px #ff7300);
+}
+
+.slide-content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 54px;
+    color: #ff7300;
+    text-shadow: 0 0 15px rgba(255, 115, 0, 0.4);
+    margin-bottom: 20px;
+}
+.slide-content p {
+    font-family: 'Ruda', sans-serif;
+    font-size: 24px;
+    color: #a0a5b5;
+    margin-bottom: 35px;
+}
+
+section h2, section h4 {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+section p {
+    font-family: 'Ruda', sans-serif;
+}
+section .bg-dark-subtle {
+    background-color: #11131c !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+section .bg-dark-subtle:hover {
+    border-color: #00f0ff !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+.text-muted {
+    color: #a0a5b5 !important;
+}
 
 footer {
     font-family: 'Ruda', sans-serif;
     border-top: 2px solid #ff7300;
     background-color: #06070d !important;
+    margin-top: 0 !important;
 }
 footer a {
     color: #00f0ff;
