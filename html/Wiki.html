@@ -34,7 +34,6 @@
             </div>
             <div class="d-flex gap-3 me-4">
                 <button id="data-theme" class="btn btn-outline-light">Тема</button>
-                <div id="builder-status" class="text-white p-2">0/5</div>
             </div>
         </div>
     </nav>
@@ -48,6 +47,7 @@
                 <button class="btn btn-outline-info" data-filter="GPU">Видеокарты</button>
                 <button class="btn btn-outline-info" data-filter="MotherBoard">Материнские платы</button>
                 <button class="btn btn-outline-info" data-filter="CoolingSystem">Охлаждение</button>
+                <button class="btn btn-outline-info" data-filter="Others">Другие</button>
             </div>
         </div>
         <div class="container mb-5">
@@ -77,16 +77,21 @@
                         <img src="/img/MotherBoard.jpg" class="card-img-top" alt="Материнские Платы">
                         <div class="card-body d-flex flex-column">
                             <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Всё о материнских платах</h4>
-                            <p class="card-text text-muted flex-grow-1">Вся возможная информация о материнских платах на данный момент:
-                                Какие комплектующие для них подходят, как сокет определяет выбор процессора, 
+                            <p class="card-text text-muted mb-0">
+                                Вся возможная информация о материнских платах на данный момент:
+                                Какие комплектующие для них подходят, как сокет определяет выбор процессора,
                             </p>
-                            <p id="myContent" class="card-text collapse mt-3 text-muted flex-grow-1">какой тип оперативной памяти поддерживают слоты, 
-                                сколько накопителей и видеокарт можно подключить, а также как форм-фактор платы диктует размеры корпуса и мощность блока питания.
-                            </p>
-                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#myContent" aria-expanded="false" aria-controls="myContent">
-                                Свернуть / Развернуть
-                            </button>
-                            <a href="https://3dnews.ru/motherboard" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                            <div class="collapse" id="moboMoreText">
+                                <p class="card-text text-muted mb-0">
+                                    какой тип оперативной памяти поддерживают слоты, 
+                                    сколько накопителей и видеокарт можно подключить, а также как форм-фактор платы диктует размеры корпуса и мощность блока питания.
+                                </p>
+                            </div>
+                            <a href="javascript:void(0);" id="toggle-btn" class="wiki-toggle-link my-2 d-inline-block" 
+                                data-bs-toggle="collapse" data-bs-target="#moboMoreText">
+                                Развернуть
+                            </a>
+                            <a href="https://3dnews.ru/motherboard" target="_blank" class="btn btn-outline-warning mt-auto">Читать оригинал</a>
                         </div>
                     </div>
                 </div>
@@ -97,6 +102,56 @@
                             <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Лучшие кулеры для спокойной жизни</h4>
                             <p class="card-text text-muted flex-grow-1">Системы охлаждения, которые подойдут для всех задач.</p>
                             <a href="https://3dnews.ru/cooling/cpu" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="CPU GPU">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="/img/CPU+GPU.jpg" class="card-img-top" alt="Процессоры и Видеокарты">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Лучшие связки процессора и видеокарты в 2026 для игр</h4>
+                            <p class="card-text text-muted flex-grow-1">Какие связки для каких игр подойдут.</p>
+                            <a href="https://habr.com/ru/companies/x-com/articles/1048996/" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="Others">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="/img/DiscDrive.jpg" class="card-img-top" alt="Жёсткий диск">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Всё о накопителях/жёстких дисках на пк</h4>
+                            <p class="card-text text-muted flex-grow-1">Какие виды распространены, для чего каждый из видов предназначен и лучший выбор для каждого.</p>
+                            <a href="https://ispserver.ru/help/differences-between-disks" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="Others">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="/img/RAM.jpg" class="card-img-top" alt="Оперативная память">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Оперативная память</h4>
+                            <p class="card-text text-muted flex-grow-1">Что это, для чего она предназначена, и сколько минимум нужно брать...</p>
+                            <a href="https://www.kingston.com/ru/blog/gaming/how-much-memory-for-gaming" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="CoolingSystem">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="/img/Water-VS-Oxygen.jpg" class="card-img-top" alt="Кулер и водяное охлаждение">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">Что лучше, кулер или водянка?</h4>
+                            <p class="card-text text-muted flex-grow-1">Разберём все плюсы и минусы.</p>
+                            <a href="https://www.kingston.com/ru/blog/gaming/air-vs-liquid-cooling-pc-builds" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 wiki-card" data-category="Others">
+                    <div class="card h-100 bg-dark text-white border-secondary">
+                        <img src="/img/PC-Case.jpg" class="card-img-top" alt="ПК Корпус">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title text-uppercase" style="font-family: 'Orbitron', sans-serif;">ПК Корпус</h4>
+                            <p class="card-text text-muted flex-grow-1">Для чего он предназначен и стоит ли за него переплачивать?</p>
+                            <a href="https://www.ixbt.com/live/offtopic/pochemu-stoit-pereplatit-za-horoshiy-korpus-dlya-pk.html" target="_blank" class="btn btn-outline-warning mt-3">Читать оригинал</a>
                         </div>
                     </div>
                 </div>
