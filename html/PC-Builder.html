@@ -33,14 +33,15 @@
                 </ul>
             </div>
             <div class="d-flex gap-3 me-4">
-                <button id="data-theme" class="btn btn-outline-light">Тема</button>
                 <svg xmlns="http://www.w3.org/2000/svg" id="pc-icon" title="Статус сборки" width="34" height="38" fill="currentColor" class="bi bi-pc-display text-muted" viewBox="0 0 16 16">
                     <path d="M8 1a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1zm1 13.5a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0m2 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0M9.5 1a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM9 3.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-5a.5.5 0 0 0-.5.5M1.5 2A1.5 1.5 0 0 0 0 3.5v7A1.5 1.5 0 0 0 1.5 12H6v2h-.5a.5.5 0 0 0 0 1H7v-4H1.5a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5H7V2z"/>
                 </svg>
             </div>
         </div>
     </nav>
-
+    <div class="container mt-3" id="advice-container">
+        <!-- Сюда JavaScript будет подставлять табличку с советами -->
+    </div>
     <main>
         <div class="row mb-5">
             <div class="col-12">
@@ -57,19 +58,19 @@
             </div>
         </div>
 
-        <!-- ЭТАЖ Б: ОСНОВНОЙ РАБОЧИЙ ИНТЕРФЕЙС (Две колонки) -->
         <div class="row g-4">
-            
-            <!-- ЛЕВАЯ КОЛОНКА: НАВИГАЦИЯ ПО ШАГАМ СБОРКИ -->
+            <!--- Левая колонка с категориями выбора комплектующих --->
             <div class="col-md-3">
                 <div class="list-group" id="steps-menu">
                     <!-- Первая кнопка активна сразу на старте -->
                     <button class="list-group-item list-group-item-action bg-dark text-white active" data-step="cpu">1. Процессор</button>
                     <button class="list-group-item list-group-item-action bg-dark text-white" data-step="motherboard">2. Материнская плата</button>
                     <button class="list-group-item list-group-item-action bg-dark text-white" data-step="cooling">3. Охлаждение</button>
-                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="gpu">4. Видеокарта</button>
-                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="power">5. Блок питания</button>
-                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="case">6. Корпус</button>
+                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="ram">4. Оперативная память</button>
+                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="gpu">5. Видеокарта</button>
+                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="ssd">6. Жёсткие диски</button>
+                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="power">7. Блок питания</button>
+                    <button class="list-group-item list-group-item-action bg-dark text-white" data-step="case">8. Корпус</button>
                 </div>
                 
                 <!-- Кнопка финала (заблокирована на старте через disabled) -->
@@ -78,18 +79,88 @@
                 </button>
             </div>
 
-            <!-- ПРАВАЯ КОЛОНКА: ПУСТОЕ ГНЕЗДО ДЛЯ КАТАЛОГА ДЕТАЛЕЙ -->
+            <!--- Правая колонка с самими комплектующими --->
             <div class="col-md-9" id="parts-catalog">
-                <!-- === ШАГ 1: ПРОЦЕССОРЫ === -->
+                <!--- Процессоры --->
                 <div class="step-content row g-3" id="step-cpu">
                     <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите процессор</h3>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">Intel Core i5-12400F</h5>
-                                <p class="text-muted small">Сокет: LGA1700<br>Мощность: 65W</p>
+                                <h5 class="fw-bold">AMD Ryzen 3 3100</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">3 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="3500" data-wattage="65" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 3 3100">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 3 3300X</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">10 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="10000" data-wattage="65" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 3 3300X">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 5 3600X</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 95W</p>
                                 <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="65" data-type="cpu" data-socket="LGA1700" data-name="Intel Core i5-12400F">Выбрать</button>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="95" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 5 3600X">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 9 3900X</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 105W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">33 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="33000" data-wattage="105" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 9 3900X">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 5 5500</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">9 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="9500" data-wattage="65" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 5 5500">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 5 5600</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">11 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="11000" data-wattage="65" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 5 5600">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 7 5700X3D</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 105W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">20 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="20000" data-wattage="105" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 7 5700X3D">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 7 5800X3D</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Мощность: 105W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">29 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="29000" data-wattage="105" data-type="cpu" data-socket="AM4" data-name="AMD Ryzen 7 5800X3D">Выбрать</button>
                             </div>
                         </div>
                     </div>
@@ -98,101 +169,1095 @@
                             <div class="card-body d-flex flex-column text-center">
                                 <h5 class="fw-bold">AMD Ryzen 5 7600X</h5>
                                 <p class="text-muted small">Сокет: AM5<br>Мощность: 105W</p>
-                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">22 000 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="22000" data-wattage="105" data-type="cpu" data-socket="AM5" data-name="AMD Ryzen 5 7600X">Выбрать</button>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">15 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="15000" data-wattage="105" data-type="cpu" data-socket="AM5" data-name="AMD Ryzen 5 7600X">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 7 7800X3D</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Мощность: 120W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">28 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="28000" data-wattage="250" data-type="cpu" data-socket="AM5" data-name="AMD Ryzen 7 7800X3D">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 7 9700X</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">26 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="26000" data-wattage="65" data-type="cpu" data-socket="AM5" data-name="AMD Ryzen 7 9700X">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Ryzen 7 9800X3D</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Мощность: 120W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">37 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="37000" data-wattage="120" data-type="cpu" data-socket="AM5" data-name="AMD Ryzen 7 9800X3D">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i3-10100F</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">9 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="9000" data-wattage="65" data-type="cpu" data-socket="LGA1200" data-name="Intel Core i3-10100F">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i5-10400F</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Мощность: 65W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">11 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="11500" data-wattage="65" data-type="cpu" data-socket="LGA1200" data-name="Intel Core i5-10400F">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i5-12400F</h5>
+                                <p class="text-muted small">Сокет: LGA1700<br>Мощность: 115W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">13 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="13500" data-wattage="115" data-type="cpu" data-socket="LGA1700" data-name="Intel Core i5-12400F">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i7-8700K</h5>
+                                <p class="text-muted small">Сокет: LGA1151<br>Мощность: 95W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">26 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="26000" data-wattage="95" data-type="cpu" data-socket="LGA1151" data-name="Intel Core i7-8700K">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i7-10700K</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Мощность: 125W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">28 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="28500" data-wattage="125" data-type="cpu" data-socket="LGA1200" data-name="Intel Core i7-10700K">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Core i7-11700K</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Мощность: 125W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">35 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="35000" data-wattage="125" data-type="cpu" data-socket="LGA1200" data-name="Intel Core i7-11700K">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Xeon E5-2620 v3</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Мощность: 85W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="85" data-type="cpu" data-socket="LGA2011-3" data-name="Intel Xeon E5-2620 v3">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Xeon E5-2666 v3</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Мощность: 135W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">5 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="5000" data-wattage="135" data-type="cpu" data-socket="LGA2011-3" data-name="Intel Xeon E5-2666 v3">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Xeon E5-2680 v4</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Мощность: 120W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 900 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6900" data-wattage="120" data-type="cpu" data-socket="LGA2011-3" data-name="Intel Xeon E5-2680 v4">Выбрать</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- === ШАГ 2: МАТЕРИНСКИЕ ПЛАТЫ (d-none) === -->
+                <!--- Материнские платы --->
                 <div class="step-content row g-3 d-none" id="step-motherboard">
                     <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите материнскую плату</h3>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">ASUS PRIME B660M-K</h5>
-                                <p class="text-muted small">Сокет: LGA1700<br>Чипсет: B660</p>
+                                <h5 class="fw-bold">MSI A520M-A PRO (mATX)</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Чипсет: AMD A520</p>
                                 <span class="text-warning fw-bold fs-4 mb-3 mt-auto">10 000 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="10000" data-wattage="0" data-type="motherboard" data-socket="LGA1700" data-name="ASUS PRIME B660M-K">Выбрать</button>
+                                <button class="btn btn-outline-info btn-select" data-price="10000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="AM4" data-name="MSI A520M-A PRO" data-ram="DDR4">Выбрать</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">GIGABYTE B650 GAMING</h5>
-                                <p class="text-muted small">Сокет: AM5<br>Чипсет: B650</p>
-                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">18 000 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="18000" data-wattage="0" data-type="motherboard" data-socket="AM5" data-name="GIGABYTE B650 GAMING X">Выбрать</button>
+                                <h5 class="fw-bold">ASRock A320M-DVS R4.0 (mATX)</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Чипсет: AMD A320</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="AM4" data-name="ASRock A320M-DVS R4.0" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASUS PRIME A320M-K (mATX)</h5>
+                                <p class="text-muted small">Сокет: AM4<br>Чипсет: AMD A320</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">5 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="5500" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="AM4" data-name="ASUS PRIME A320M-K" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">GIGABYTE A620M H (mATX)</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Чипсет: AMD A620</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="AM5" data-name="GIGABYTE A620M H" data-ram="DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">GIGABYTE B650M DS3H (mATX)</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Чипсет: AMD A620</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="AM5" data-name="GIGABYTE B650M DS3H" data-ram="DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASRock X870 Pro RS (ATX)</h5>
+                                <p class="text-muted small">Сокет: AM5<br>Чипсет: AMD X870</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">20 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="20000" data-wattage="0" data-size="ATX" data-type="motherboard" data-socket="AM5" data-name="ASRock X870 Pro RS" data-ram="DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">GIGABYTE B460M DS3H (mATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Чипсет: B650</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">8 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="8000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="LGA1200" data-name="GIGABYTE B460M DS3H" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASUS TUF GAMING B560-PLUS WIFI (ATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1200<br>Чипсет: B560</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">13 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="13000" data-wattage="0" data-size="ATX" data-type="motherboard" data-socket="LGA1200" data-name="ASUS TUF GAMING B560-PLUS WIFI" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">MSI MPG Z490 GAMING PLUS (ATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1700<br>Чипсет: Z490</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">15 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="15000" data-wattage="0" data-size="ATX" data-type="motherboard" data-socket="LGA1200" data-name="MSI MPG Z490 GAMING PLUS" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASRock B760 Pro RS (ATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1700<br>Чипсет: B760</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">13 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="13000" data-wattage="0" data-size="ATX" data-type="motherboard" data-socket="LGA1700" data-name="ASRock B760 Pro RS" data-ram="DDR4 DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">MSI MAG B760M MORTAR WIFI (mATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1700<br>Чипсет: B760</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">17 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="17000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="LGA1700" data-name="MSI MAG B760M MORTAR WIFI" data-ram="DDR4 DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">GIGABYTE Z790 AORUS MASTER (E-ATX)</h5>
+                                <p class="text-muted small">Сокет: LGA1700<br>Чипсет: Z790</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">50 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="50000" data-wattage="0" data-size="E" data-type="motherboard" data-socket="LGA1700" data-name="GIGABYTE Z790 AORUS MASTER" data-ram="DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Huananzhi X99-8M-F (mATX)</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Чипсет: B85 / H81</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="LGA2011-3" data-name="Huananzhi X99-8M-F" data-ram="DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Huananzhi X99-TF (ATX)</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Чипсет: X99 / C612</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="0" data-size="ATX" data-type="motherboard" data-socket="LGA2011-3" data-name="Huananzhi X99-TF" data-ram="DDR3 DDR4">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Machinist X99-RS9 (mATX)</h5>
+                                <p class="text-muted small">Сокет: LGA2011-3<br>Чипсет: B85 / Q87</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="0" data-size="m-atx" data-type="motherboard" data-socket="LGA2011-3" data-name="Machinist X99-RS9" data-ram="DDR4">Выбрать</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- === ШАГ 3: ОХЛАЖДЕНИЕ (d-none) === -->
+                <!--- Охлаждение --->
                 <div class="step-content row g-3 d-none" id="step-cooling">
                     <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите охлаждение</h3>
+                    <!-- Вариант 1: Кулер (сверху вниз идут более мощные модели)-->
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">DeepCool GAMMAXX 400</h5>
+                                <h5 class="fw-bold">Intel Laminar RM1</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 80mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">1 600 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="1600" data-wattage="5" data-type="cooling" data-socket="LGA1700" data-name="Intel Laminar RM1">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Wraith Stealth</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 92mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">1 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="1800" data-wattage="2" data-type="cooling" data-socket="AM4 AM5" data-name="AMD Wraith Stealth">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool ARCHER BIGPRO</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">2 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="1600" data-wattage="2" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="Deepcool ARCHER BIGPRO">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ID-COOLING SE-224-XTS</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">2 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="2000" data-wattage="2" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="ID-COOLING SE-224-XTS">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">PCCooler PALADIN EX400</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">1 800 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="1800" data-wattage="3" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="PCCooler PALADIN EX400">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Be Quiet! Pure Rock 2</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4500" data-wattage="3" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011 AM4 AM5" data-name="Be Quiet! Pure Rock 2">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ID-COOLING SE-226-XT</h5>
                                 <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
                                 <span class="text-warning fw-bold fs-4 mb-3 mt-auto">2 500 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="2500" data-wattage="5" data-type="cooling" data-name="DeepCool GAMMAXX 400 V2">Выбрать</button>
+                                <button class="btn btn-outline-info btn-select" data-price="2500" data-wattage="3" data-type="cooling" data-socket="LGA1700 LGA1151 LGA1200 LGA2011-3 AM4 AM5" data-name="ID-COOLING SE-226-XT">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">DEEPCOOL AK500</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">1 600 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="1600" data-wattage="1" data-type="cooling" data-socket="LGA1700 LGA1151 LGA1200 LGA2011-3 AM4 AM5" data-name="DEEPCOOL AK500">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">PCCooler PALADIN 400</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">2 900 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="2900" data-wattage="4" data-type="cooling" data-socket="LGA1700 LGA1151 LGA1200 AM4 AM5" data-name="PCCooler PALADIN 400">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool AK620</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="1" data-type="cooling" data-socket="LGA1700 LGA1200 LGA2011-3 AM4 AM5" data-name="Deepcool AK620">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Thermalright Peerless Assassin 120 SE</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="2" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="Thermalright Peerless Assassin 120 SE">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ID-COOLING SE-207-XT Black</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 80mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4500" data-wattage="6" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="ID-COOLING SE-207-XT Black">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Вариант 2: Водянка (также как и с кулерами) -->
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ID-COOLING Frostflow X 120</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">3 300 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="3300" data-wattage="6" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="ID-COOLING Frostflow X 120">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NZXT Kraken M22</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">8 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="8000" data-wattage="8" data-type="cooling" data-socket="LGA1151 LGA2011-3 AM4" data-name="NZXT Kraken M22">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool LE520</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Длина СЖО: 240mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6500" data-wattage="10" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="Deepcool LE520">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">LIAN LI Galahad AIO 240</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">11 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="11500" data-wattage="12" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="LIAN LI Galahad AIO 240">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Arctic Liquid Freezer III 280</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 140mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">13 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="13000" data-wattage="8" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="Arctic Liquid Freezer III 280">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NZXT Kraken 280</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 140mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">17 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="17000" data-wattage="22" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 AM4 AM5" data-name="NZXT Kraken 280">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool LT720</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="11" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="Deepcool LT720">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASUS ROG RYUJIN III 360 ARGB</h5>
+                                <p class="text-muted small">Универсальный кулер<br>Вентилятор: 120mm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">40 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="40500" data-wattage="15" data-type="cooling" data-socket="LGA1700 LGA1200 LGA1151 LGA2011-3 AM4 AM5" data-name="ASUS ROG RYUJIN III 360 ARGB">Выбрать</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- === ШАГ 4: ВИДЕОКАРТЫ (d-none) === -->
+                <!--- Оперативная память --->
+                <div class="step-content row g-3 d-none" id="step-ram">
+                    <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите оперативную память</h3>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Kingston ValueRAM [KVR16N11/8] (1 плашка по 8ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR3<br>Частота: 1600 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4500" data-wattage="4" data-type="ram" data-ram="DDR3" data-name="Kingston ValueRAM [KVR16N11/8]">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Kingston HyperX Savage (2 плашки по 8ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR3 / DDR4<br>Частота: 1600 MHz - 3000MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6000" data-wattage="2" data-type="ram" data-ram="DDR3 DDR4" data-name="Kingston HyperX Savage">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Samsung ECC REG [M393B1G70QH0] (1 плашка по 8ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR3<br>Частота: 1600 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">5 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="5000" data-wattage="2" data-type="ram" data-ram="DDR3" data-name="Samsung ECC REG [M393B1G70QH0]">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Samsung [M378A1K43CB2-CTD] (1 плашка по 8ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR4<br>Частота: 2700 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="1" data-type="ram" data-ram="DDR4" data-name="Samsung [M378A1K43CB2-CTD]">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ADATA XPG GAMMIX D10 (2 плашки по 8ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR4<br>Частота: 3000 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">8 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="8000" data-wattage="1" data-type="ram" data-ram="DDR4" data-name="ADATA XPG GAMMIX D10">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">G.Skill Trident Z Neo (2 плашки по 16ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR4 / DDR5<br>Частота: 4500 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">15 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="15500" data-wattage="3" data-type="ram" data-ram="DDR4 DDR5" data-name="G.Skill Trident Z Neo">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Kingston FURY Beast DDR5 (2 плашки про 16ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR5<br>Частота: 6000 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">27 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="27500" data-wattage="5" data-type="ram" data-ram="DDR5" data-name="Kingston FURY Beast DDR5">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ADATA XPG Lancer RGB (2 плашки по 16ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR5<br>Частота: 7500 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">62 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="62500" data-wattage="3" data-type="ram" data-ram="DDR5" data-name="ADATA XPG Lancer RGB">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">G.Skill Trident Z5 RGB [F5-8000J4048F24GX2-TZ5RK] (2 плашки по 24ГБ)</h5>
+                                <p class="text-muted small">Тип: DDR4<br>Частота: 8000 MHz</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">50 200 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="50200" data-wattage="4" data-type="ram" data-ram="DDR4" data-name="G.Skill Trident Z5 RGB [F5-8000J4048F24GX2-TZ5RK]">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Видеокарты --->
                 <div class="step-content row g-3 d-none" id="step-gpu">
                     <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите видеокарту</h3>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">NVIDIA RTX 4060</h5>
+                                <h5 class="fw-bold">NVIDIA GeForce GTX 1050 Ti</h5>
+                                <p class="text-muted small">Память: 4GB GDDR5<br>Мощность: 75W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="75" data-type="gpu" data-name="NVIDIA GeForce GTX 1050 Ti">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce GTX 1060</h5>
+                                <p class="text-muted small">Память: 6GB GDDR5<br>Мощность: 250W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">14 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="14000" data-wattage="250" data-type="gpu" data-name="NVIDIA GeForce GTX 1060">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce GTX 1080 TI</h5>
+                                <p class="text-muted small">Память: 11GB GDDR5X<br>Мощность: 250W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">17 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="17000" data-wattage="250" data-type="gpu" data-name="NVIDIA GeForce GTX 1080 TI">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 2060 Super</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 175W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">23 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="23000" data-wattage="175" data-type="gpu" data-name="NVIDIA GeForce RTX 2060 Super">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 3050</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 130W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">30 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="30000" data-wattage="" data-type="gpu" data-name="NVIDIA GeForce RTX 3050">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 3060 Ti</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 200W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">45 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="45000" data-wattage="200" data-type="gpu" data-name="NVIDIA GeForce RTX 3060 Ti">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 4060</h5>
                                 <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 115W</p>
                                 <span class="text-warning fw-bold fs-4 mb-3 mt-auto">35 000 ₽</span>
                                 <button class="btn btn-outline-info btn-select" data-price="35000" data-wattage="115" data-type="gpu" data-name="NVIDIA GeForce RTX 4060">Выбрать</button>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- === ШАГ 5: БЛОКИ ПИТАНИЯ (d-none) === -->
-                <div class="step-content row g-3 d-none" id="step-power">
-                    <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите блок питания</h3>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
-                                <h5 class="fw-bold">DeepCool PF600 600W</h5>
-                                <p class="text-muted small">Мощность: 600W<br>Сертификат: 80 PLUS</p>
-                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 500 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="4500" data-wattage="600" data-type="power" data-name="DeepCool PF600 600W">Выбрать</button>
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 4070 Ti SUPER</h5>
+                                <p class="text-muted small">Память: 16GB GDDR6X<br>Мощность: 285W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">82 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="82000" data-wattage="285" data-type="gpu" data-name="NVIDIA GeForce RTX 4070 Ti SUPER">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 5070 Ti</h5>
+                                <p class="text-muted small">Память: 16GB GDDR7<br>Мощность: 300W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">110 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="110000" data-wattage="300" data-type="gpu" data-name="NVIDIA GeForce RTX 5070 Ti">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">NVIDIA GeForce RTX 5090</h5>
+                                <p class="text-muted small">Память: 32GB GDDR7<br>Мощность: 600W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">350 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="350000" data-wattage="600" data-type="gpu" data-name="NVIDIA GeForce RTX 5090">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 580</h5>
+                                <p class="text-muted small">Память: 8GB GDDR5<br>Мощность: 170W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="170" data-type="gpu" data-name="AMD Radeon RX 580">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX Vega 64</h5>
+                                <p class="text-muted small">Память: 8GB HBM2<br>Мощность: 295W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="295" data-type="gpu" data-name="AMD Radeon RX Vega 64">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 5500 XT</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 130W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">20 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="20000" data-wattage="130" data-type="gpu" data-name="AMD Radeon RX 5500 XT">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 6700 XT</h5>
+                                <p class="text-muted small">Память: 12GB GDDR6<br>Мощность: 230W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">52 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="52000" data-wattage="230" data-type="gpu" data-name="AMD Radeon RX 6700 XT">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 7600</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 145W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">30 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="30000" data-wattage="145" data-type="gpu" data-name="AMD Radeon RX 7600">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 7900 XTX</h5>
+                                <p class="text-muted small">Память: 24GB GDDR6<br>Мощность: 355W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">75 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="75000" data-wattage="355" data-type="gpu" data-name="AMD Radeon RX 7900 XTX">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">AMD Radeon RX 9070 XT</h5>
+                                <p class="text-muted small">Память: 16GB GDDR6<br>Мощность: 304W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">80 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="80000" data-wattage="304" data-type="gpu" data-name="AMD Radeon RX 9070 XT">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Arc A380</h5>
+                                <p class="text-muted small">Память: 6GB GDDR6<br>Мощность: 75W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">15 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="15000" data-wattage="75" data-type="gpu" data-name="Intel Arc A380">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Arc A580</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 175W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">20 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="20000" data-wattage="175" data-type="gpu" data-name="Intel Arc A580">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Arc A750</h5>
+                                <p class="text-muted small">Память: 8GB GDDR6<br>Мощность: 225W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">25 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="25000" data-wattage="225" data-type="gpu" data-name="Intel Arc A750">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Intel Arc A770</h5>
+                                <p class="text-muted small">Память: 16GB GDDR6<br>Мощность: 225W</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">39 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="39000" data-wattage="225" data-type="gpu" data-name="Intel Arc A770">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!--- Накопители (SSD / HDD) --->
+                <div class="step-content row g-3 d-none" id="step-ssd">
+                    <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите накопители (SSD или HDD)</h3>
+                    
+                    <!-- Вариант 1: Скоростной SSD -->
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">SSD Kingston NV2 1TB</h5>
+                                <p class="text-muted small">Тип: M.2 NVMe<br>Скорость: 3500 MB/s</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7500" data-wattage="5" data-type="ssd" data-name="SSD Kingston NV2 1TB">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вариант 2: Классический Жёсткий диск HDD -->
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">HDD WD Blue 2TB</h5>
+                                <p class="text-muted small">Тип: SATA III 3.5"<br>Скорость: 7200 rpm</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">5 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="5000" data-wattage="10" data-type="ssd" data-name="HDD WD Blue 2TB">Выбрать</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- === ШАГ 6: КОРПУСА (d-none) === -->
+                <!--- Блоки питания --->
+                <div class="step-content row g-3 d-none" id="step-power">
+                    <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите блок питания</h3>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Aerocool VX Plus</h5>
+                                <p class="text-muted small">Мощность: 500W<br>Сертификат: Нету</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">3 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="3000" data-wattage="500" data-type="power" data-name="Aerocool VX Plus">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool PF500</h5>
+                                <p class="text-muted small">Мощность: 500W<br>Сертификат: 80 PLUS STANDARD (80 PLUS 230V EU White)</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">3 300 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="3300" data-wattage="500" data-type="power" data-name="Deepcool PF500">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Chieftec Task TPS-500S</h5>
+                                <p class="text-muted small">Мощность: 500W<br>Сертификат: 80 PLUS BRONZE</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="500" data-type="power" data-name="Chieftec Task TPS-500S">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Cooler Master MWE Bronze 550 V2</h5>
+                                <p class="text-muted small">Мощность: 550W<br>Сертификат: 80 PLUS BRONZE</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="550" data-type="power" data-name="Cooler Master MWE Bronze 550 V2">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool PK650D</h5>
+                                <p class="text-muted small">Мощность: 650W<br>Сертификат: 80 PLUS BRONZE</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6000" data-wattage="650" data-type="power" data-name="Deepcool PK650D">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Be Quiet! System Power 10 650W</h5>
+                                <p class="text-muted small">Мощность: 650W<br>Сертификат: 80 PLUS BRONZE</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">8 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="8000" data-wattage="650" data-type="power" data-name="Be Quiet! System Power 10 650W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Chieftec Polaris PRO 750W</h5>
+                                <p class="text-muted small">Мощность: 750W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">10 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="10000" data-wattage="750" data-type="power" data-name="Chieftec Polaris PRO 750W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">XPG Pylon 750W</h5>
+                                <p class="text-muted small">Мощность: 750W<br>Сертификат: 80 PLUS BRONZE</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7000" data-wattage="750" data-type="power" data-name="XPG Pylon 750W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Montech Titan Gold 850W</h5>
+                                <p class="text-muted small">Мощность: 850W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">13 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="13000" data-wattage="850" data-type="power" data-name="Montech Titan Gold 850W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool PX850G</h5>
+                                <p class="text-muted small">Мощность: 850W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">15 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="15000" data-wattage="850" data-type="power" data-name="Aerocool VX Plus 500W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">MSI MAG A850GL</h5>
+                                <p class="text-muted small">Мощность: 850W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">10 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="10000" data-wattage="850" data-type="power" data-name="MSI MAG A850GL">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Super Flower Leadex VII Gold 850W</h5>
+                                <p class="text-muted small">Мощность: 850W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">14 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="14000" data-wattage="850" data-type="power" data-name="Super Flower Leadex VII Gold 850W">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Phanteks AMP 1000W V2</h5>
+                                <p class="text-muted small">Мощность: 1000W<br>Сертификат: 80 PLUS GOLD</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12000" data-wattage="1000" data-type="power" data-name="Phanteks AMP 1000W V2">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Chieftronic PowerPlay 1050W Platinum</h5>
+                                <p class="text-muted small">Мощность: 1050W<br>Сертификат: 80 PLUS Platinum</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">17 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="17000" data-wattage="1050" data-type="power" data-name="Chieftronic PowerPlay 1050W Platinum">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">ASUS ROG Thor 1200W Platinum II</h5>
+                                <p class="text-muted small">Мощность: 1200W<br>Сертификат: 80 PLUS Platinum</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">40 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="40000" data-wattage="1200" data-type="power" data-name="ASUS ROG Thor 1200W Platinum II">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Seasonic PRIME TX-1300</h5>
+                                <p class="text-muted small">Мощность: 1300W<br>Сертификат: 80 PLUS Titanium</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">60 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="60000" data-wattage="1300" data-type="power" data-name="Seasonic PRIME TX-1300">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Корпуса --->
                 <div class="step-content row g-3 d-none" id="step-case">
                     <h3 class="text-uppercase text-warning mb-3" style="font-family: 'Orbitron', sans-serif;">Выберите корпус</h3>
                     <div class="col-md-4">
                         <div class="card bg-dark text-white border-secondary h-100">
                             <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Zalman Z3 PLUS</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX<br>Окно: Акриловое стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">6 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="6500" data-wattage="0" data-size="ATX m-atx" data-type="case" data-name="Zalman Z3 PLUS">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Prime Box Predator V2</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">4 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="4000" data-wattage="0" data-size="ATX m-atx" data-type="case" data-name="Prime Box Predator V2">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Deepcool Smarter</h5>
+                                <p class="text-muted small">Форм-фактор: Micro-ATX<br>Окно: отсутствует</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">3 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="3500" data-wattage="0" data-size="m-atx" data-type="case" data-name="Deepcool Smarter">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
                                 <h5 class="fw-bold">Zalman i3 Neo</h5>
-                                <p class="text-muted small">Форм-фактор: ATX<br>Окно: Закаленное стекло</p>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX<br>Окно: Закаленное стекло</p>
                                 <span class="text-warning fw-bold fs-4 mb-3 mt-auto">5 500 ₽</span>
-                                <button class="btn btn-outline-info btn-select" data-price="5500" data-wattage="0" data-type="case" data-name="Zalman i3 Neo Black">Выбрать</button>
+                                <button class="btn btn-outline-info btn-select" data-price="5500" data-wattage="0" data-size="ATX m-atx" data-type="case" data-name="Zalman i3 Neo Black">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Montech AIR 903 MAX</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX / E-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">9 000 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="9000" data-wattage="0" data-size="e-atx ATX m-atx" data-type="case" data-name="Montech AIR 903 MAX">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Be Quiet! Pure Base 500DX</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">14 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="14500" data-wattage="0" data-size="ATX m-atx" data-type="case" data-name="Be Quiet! Pure Base 500DX">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">1STPLAYER MOTO MV6</h5>
+                                <p class="text-muted small">Форм-фактор: Micro-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">7 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="7500" data-wattage="0" data-size="m-atx" data-type="case" data-name="1STPLAYER MOTO MV6">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">LIAN LI O11 Dynamic EVO</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX / E-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">16 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="16500" data-wattage="0" data-size="ATX m-atx E" data-type="case" data-name="LIAN LI O11 Dynamic EVO">Выбрать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white border-secondary h-100">
+                            <div class="card-body d-flex flex-column text-center">
+                                <h5 class="fw-bold">Phanteks NV5</h5>
+                                <p class="text-muted small">Форм-фактор: ATX / Micro-ATX / E-ATX<br>Окно: Закаленное стекло</p>
+                                <span class="text-warning fw-bold fs-4 mb-3 mt-auto">12 500 ₽</span>
+                                <button class="btn btn-outline-info btn-select" data-price="12500" data-wattage="0" data-size="ATX m-atx E" data-type="case" data-name="Phanteks NV5">Выбрать</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-
     </main>
 
     <footer class="bg-dark text-white py-4">
@@ -252,5 +1317,17 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="../js/PC-Builder.js"></script>
+    <script>
+    (function(d, w, c) {
+        w.ChatraID = 'cbAn33HcsMZTo9Snc';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+    </script>
 </body>
 </html>

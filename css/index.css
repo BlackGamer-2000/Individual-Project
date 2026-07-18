@@ -38,7 +38,7 @@ main {
     margin-left: 50px;
     margin-right: 50px;
     font-weight: 700;
-    text-transform: uppercase; /* Заглавные буквы */
+    text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -46,12 +46,6 @@ main {
     color: #ff7300;
     text-shadow: 0 0 10px #ff7300, 0 0 20px #ff7300;
 }
-/* Шрифт Ruda для текста кнопки переключения День/Ночь */
-#data-theme {
-    font-size: 28px;
-    font-family: 'Ruda', sans-serif;
-}
-
 
 /* --- ГЛАВНАЯ СТРАНИЦА: СЛАЙДЕР SWIPER --- */
 /* Внешние границы карусели */

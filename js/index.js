@@ -1,3 +1,4 @@
+/* --- Просто js код на Swiper --- */
 const swiper = new Swiper('.mySwiper', {
     loop: true,
     navigation: {

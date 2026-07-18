@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="../css/Wiki.css">
 </head>
 <body>
@@ -32,16 +31,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="d-flex gap-3 me-4">
-                <button id="data-theme" class="btn btn-outline-light">Тема</button>
-            </div>
         </div>
     </nav>
 
     <main>
         <div class="container my-5 text-center">
             <h2 class="text-uppercase mb-4 text-warning fw-bold" style="font-family: 'Orbitron', sans-serif;">База знаний CyberForge</h2>
-            <div class="d-flex flex-wrap justify-content-center gap-3" id="filter-buttons">
+            <div class="d-flex flex-wrap justify-content-center gap-3" id="filter-btn">
                 <button class="btn btn-warning active" data-filter="all">Все материалы</button>
                 <button class="btn btn-outline-info" data-filter="CPU">Процессоры</button>
                 <button class="btn btn-outline-info" data-filter="GPU">Видеокарты</button>
@@ -81,14 +77,14 @@
                                 Вся возможная информация о материнских платах на данный момент:
                                 Какие комплектующие для них подходят, как сокет определяет выбор процессора,
                             </p>
-                            <div class="collapse" id="moboMoreText">
+                            <div class="collapse" id="motherboard-text">
                                 <p class="card-text text-muted mb-0">
                                     какой тип оперативной памяти поддерживают слоты, 
                                     сколько накопителей и видеокарт можно подключить, а также как форм-фактор платы диктует размеры корпуса и мощность блока питания.
                                 </p>
                             </div>
-                            <a href="javascript:void(0);" id="toggle-btn" class="wiki-toggle-link my-2 d-inline-block" 
-                                data-bs-toggle="collapse" data-bs-target="#moboMoreText">
+                            <a href="javascript:void(0);" id="collapse-btn" class="wiki-toggle-link my-2 d-inline-block" 
+                                data-bs-toggle="collapse" data-bs-target="#motherboard-text">
                                 Развернуть
                             </a>
                             <a href="https://3dnews.ru/motherboard" target="_blank" class="btn btn-outline-warning mt-auto">Читать оригинал</a>

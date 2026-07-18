@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermsOfService</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            margin-top: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        main img {
+            width: 320px;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+            margin: 0 auto 25px auto;
+        }
+        h2 {
+            font-weight: 600;
+            color: #ff7300;
+            text-align: center;
+            margin: 0;
+            line-height: 1.3;
+        }
+        h4 {
+            font-weight: 400;
+            color: #a0a5b5;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-back {
+            padding: 12px 30px;
+            color: #ff7300;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #ff7300;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            background-color: #ff7300;
+            color: #000000;
+            box-shadow: 0 0 15px #ff7300;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="../img/404-Error.jpg" alt="Ошибка 404">
+        <h2>На данный момент здесь ничего нет.</h2>
+        <h2 style="margin-bottom: 12px;">Заходите позже</h2>
+        <h4>Приносим извинения за доставленные неудобства...</h4>
+        <a href="#" class="btn btn-back" onclick="history.back(); return false;">Назад</a>
+    </main>
+</body>
+</html>
