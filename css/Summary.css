@@ -22,16 +22,16 @@ main {
     border-bottom: 2px solid #ff7300;
     padding: 10px 0;
 }
-/* Ограничение размеров картинки логотипа */
+/* Ограничение размеров логотипа */
 .navbar-brand img {
     height: 130px;
     width: auto;
 }
-/* Кастомный шрифт для всего блока меню навигации */
+/* Необычный шрифт для всего блока меню навигации */
 #cyberNav {
     font-family: 'Ruda', sans-serif;
 }
-/* Оформление обычных текстовых ссылок в меню */
+/* Оформление ссылок в меню */
 .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 28px;
@@ -83,18 +83,18 @@ footer a:hover {
 
 /* --- Стили для печати документа --- */
 @media print {
-    /* 1. Прячем с листа бумаги шапку, подвал и сами кнопки управления */
+    /* Прячем с листа бумаги шапку, подвал и сами кнопки управления */
     .navbar, footer, .btn, #verdict-box {
         display: none !important;
     }
-    /* 2. Перекрашиваем фон страницы в чистый белый цвет, а текст — в черный */
+    /* Перекрашиваем фон страницы в чистый белый цвет, а текст — в черный */
     body, main {
         background-color: #ffffff !important;
         color: #000000 !important;
         padding: 0 !important;
         margin: 0 !important;
     }
-    /* 3. Делаем рамку бланка спецификации аккуратной и строгой */
+    /* Делаем рамку бланка спецификации аккуратной */
     .p-5.rounded.border {
         background-color: #ffffff !important;
         color: #000000 !important;
@@ -102,13 +102,12 @@ footer a:hover {
         box-shadow: none !important;
         padding: 20px !important;
     }
-    /* 4. Перекрашиваем плашки деталей в аккуратный светло-серый цвет, а текст в черный */
     .summary-item {
         background-color: #f8f9fa !important;
         border: 1px solid #dee2e6 !important;
         color: #000000 !important;
     }
-    /* 5. Делаем все цветные шрифты (желтые, синие) строго черными, чтобы они не сливались при печати */
+    /* Делаем все цветные шрифты (желтые, синие) строго черными, чтобы они не сливались при печати */
     .text-warning, .text-info, h2, span {
         color: #000000 !important;
         text-shadow: none !important;

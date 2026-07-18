@@ -22,16 +22,16 @@ main {
     border-bottom: 2px solid #ff7300;
     padding: 10px 0;
 }
-/* Ограничение размеров картинки логотипа */
+/* Ограничение размеров логотипа */
 .navbar-brand img {
     height: 130px;
     width: auto;
 }
-/* Кастомный шрифт для всего блока меню навигации */
+/* Необычный шрифт для всего блока меню навигации */
 #cyberNav {
     font-family: 'Ruda', sans-serif;
 }
-/* Оформление обычных текстовых ссылок в меню */
+/* Оформление ссылок в меню */
 .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 28px;
@@ -57,7 +57,7 @@ main {
     box-shadow: 0 0 25px #ff7300;
     cursor: pointer;
 }
-/* Здесь этот же шрифт отвечает за цвет описания комплектующих и за другие слова покрашенные в серый */
+/* Здесь этот же класс отвечает за цвет описания комплектующих и за другие слова покрашенные в серый */
 .text-muted {
     color: #a0a5b5 !important;
 }
@@ -95,7 +95,7 @@ main {
 .cyber-sign span {
     color: #ff7300 !important;
 }
-/* Оранжевые кибер-цепи */
+/* Оранжевые "цепи" */
 .cyber-sign::before {
     content: "";
     position: absolute;

@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', function() {
             const boxButtons = currentBox.querySelectorAll('.btn-select');
             
             boxButtons.forEach(function(btn) {
-                // Если на кнопке висит класс 'disabled', мы её просто игнорируем и не трогаем */
+                /* Если на кнопке висит класс 'disabled', мы её просто игнорируем и не трогаем */
                 if (!btn.classList.contains('disabled')) {
                     btn.classList.remove('btn-success', 'active');
                     btn.classList.add('btn-outline-info');

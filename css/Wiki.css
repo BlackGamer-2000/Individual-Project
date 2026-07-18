@@ -22,7 +22,7 @@ main {
     border-bottom: 2px solid #ff7300;
     padding: 10px 0;
 }
-/* Ограничение размеров картинки логотипа */
+/* Ограничение размеров логотипа */
 .navbar-brand img {
     height: 130px;
     width: auto;
@@ -31,14 +31,14 @@ main {
 #cyberNav {
     font-family: 'Ruda', sans-serif;
 }
-/* Оформление обычных текстовых ссылок в меню */
+/* Оформление ссылок в меню */
 .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 28px;
     margin-left: 50px;
     margin-right: 50px;
     font-weight: 700;
-    text-transform: uppercase; /* Заглавные буквы */
+    text-transform: uppercase;
     letter-spacing: 1px;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
@@ -52,7 +52,7 @@ main {
 /* Настройка картинок-превью для 9 статей */
 .wiki-card .card-img-top {
     height: 250px;
-    object-fit: cover; /* Ровное масштабирование без искажения пропорций */
+    object-fit: cover;
     border-bottom: 1px solid #1a1d29;
 }
 /* Обычное состояние ссылки Свернуть / Развернуть */

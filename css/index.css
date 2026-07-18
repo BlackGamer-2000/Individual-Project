@@ -11,7 +11,7 @@ body {
 /* Настройки для основного контейнера страниц */
 main {
     background-color: #0d0e12;
-    padding: 60px 0; /* Крупные отступы сверху и снизу, чтобы контент не слипался */
+    padding: 60px 0;
 }
 
 
@@ -22,16 +22,16 @@ main {
     border-bottom: 2px solid #ff7300;
     padding: 10px 0;
 }
-/* Ограничение размеров картинки логотипа */
+/* Ограничение размеров логотипа */
 .navbar-brand img {
     height: 130px;
     width: auto;
 }
-/* Кастомный шрифт для всего блока меню навигации */
+/* Необычный шрифт для всего блока меню навигации */
 #cyberNav {
     font-family: 'Ruda', sans-serif;
 }
-/* Оформление обычных текстовых ссылок в меню */
+/* Оформление текстовых ссылок в меню */
 .navbar-nav .nav-link {
     color: #ffffff;
     font-size: 28px;
@@ -89,7 +89,7 @@ main {
     font-family: 'Ruda', sans-serif;
     font-size: 24px;
     color: #a0a5b5;
-    margin-bottom: 35px; /* Пространство между описанием и кнопкой */
+    margin-bottom: 35px;
 }
 
 

@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const build = JSON.parse(savedData);
     let totalPrice = 0;
     let totalWattage = 0;
-    let powerSupplyWattage = 0; // Сюда сохраним мощность выбранного Блока питания
+    let powerSupplyWattage = 0;
 
     /* Очищаем контейнер перед выводом деталей (если новая сборка, все записанные ранее данные сотрутся) */
     summaryList.innerHTML = '';
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
             /* Остальные детали суммируем в общую копилку прожорливости системы */
             totalWattage += part.wattage;
         }
-        /* Переводим все названия комплектующих (не сами комплектующие, а что это) */
+        /* Переводим все названия комплектующих (не названия комплектующие, а что это) */
         let russianType = part.type;
         if (part.type === 'cpu') russianType = 'Процессор';
         if (part.type === 'motherboard') russianType = 'Материнская плата';
@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function() {
     /* Кнопка Печати */
     if (btnPrint) {
         btnPrint.addEventListener('click', function() {
-            window.print(); /* Открывает системное окно печати у браузера */
+            window.print();
         });
     }
 });

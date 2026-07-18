@@ -35,33 +35,28 @@
     </nav>
     
     <main class="container my-5" style="max-width: 900px;">
-        
-        <!-- БЛОК А: БОЛЬШОЙ ЦВЕТНОЙ ВЕРДИКТ СИСТЕМЫ (JS закрасит его в зеленый или красный) -->
         <div id="verdict-box" class="alert alert-secondary p-4 mb-5 text-center d-none">
             <h2 id="verdict-title" class="fw-bold mb-2" style="font-family: 'Orbitron', sans-serif;">АНАЛИЗ СИСТЕМЫ...</h2>
             <p id="verdict-text" class="mb-0 fs-5" style="font-family: 'Ruda', sans-serif;"></p>
         </div>
-
-        <!-- БЛОК Б: ТЕХНИЧЕСКИЙ ПАСПОРТ (Бланк Спецификации) -->
         <div class="p-5 rounded border border-secondary bg-dark text-white shadow-lg">
             <h2 class="text-uppercase text-warning text-center mb-4 fw-bold" style="font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">
                 СПЕЦИФИКАЦИЯ СБОРКИ
             </h2>
             
-            <!-- Сюда JS будет вставлять строки с выбранными деталями -->
-            <div id="summary-list" class="mb-4" style="font-family: 'Ruda', sans-serif;">
-                <!-- Строки появятся динамически -->
+            <!-- Сюда javascript будет вставлять строки с выбранными деталями -->
+            <div id="summary-list" class="mb-4" style="font-family: 'Ruda', sans-serif;">\
             </div>
 
             <hr class="border-secondary my-4">
 
-            <!-- ФИНАЛЬНАЯ СУММА -->
+            <!-- Итоговая сумма -->
             <div class="d-flex justify-content-between align-items-center mb-4 px-3" style="font-family: 'Orbitron', sans-serif;">
                 <span class="fs-4 text-muted uppercase">ОБЩАЯ СТОИМОСТЬ СБОРКИ:</span>
                 <span id="summary-price" class="fs-1 text-warning fw-bold">0 ₽</span>
             </div>
 
-            <!-- КНОПКИ УПРАВЛЕНИЯ -->
+            <!-- Кнопки управления -->
             <div class="row g-3" style="font-family: 'Ruda', sans-serif;">
                 <div class="col-md-6">
                     <a href="./PC-Builder.html" class="btn btn-outline-info w-100 py-3 fw-bold">
